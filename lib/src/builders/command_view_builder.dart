@@ -15,17 +15,16 @@ class _CommandViewBuilderState extends State<CommandViewBuilder> {
   _CommandViewBuilderState(this.text);
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(builder: _builder, future: CommandModule().sendCommandResponse(text));
+    return FutureBuilder(builder: _builder, future: CommandModule(context).sendCommandResponse(text));
   }
 
-  _builder(BuildContext context, AsyncSnapshot snapshot) {
+  Widget _builder(BuildContext context, AsyncSnapshot snapshot) {
     if (snapshot.connectionState == ConnectionState.done){
-
+      return Container();
     }else{
-      return CircularProgressIndicator();
+      return LinearProgressIndicator();
     }
   }
-
 }
 
 

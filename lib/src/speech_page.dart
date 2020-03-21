@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:speech_recognition/speech_recognition.dart';
 
 import 'book_info_page.dart';
+import 'builders/command_view_builder.dart';
 import 'models/book.dart';
 
 class Language {
@@ -58,6 +59,7 @@ class _MyAppState extends State<Speech> {
           stop();
           _isListening = false;
           print(transcription);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> CommandViewBuilder(transcription)));
         },
         child: Container(
           height: 60.0,

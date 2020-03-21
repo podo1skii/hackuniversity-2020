@@ -3,7 +3,10 @@ import 'package:bookshop/src/services/user_service.dart';
 import 'package:bookshop/src/speech.dart';
 import 'package:bookshop/src/speech_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+
+import 'camera_view.dart';
 
 class HeaderAppBar extends StatefulWidget{
   @override
@@ -43,7 +46,13 @@ class _HeaderAppBarState extends State<HeaderAppBar> {
           ),
           Row(
             children: <Widget>[
-              Icon(IconData(0xe3c2, fontFamily: 'MaterialIcons'), size: 25.0,)
+              GestureDetector(
+                onTap: () async {
+                  final cameras = await availableCameras();
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CameraApp(cameras)));
+                },
+                child: Icon(IconData(0xe3c2, fontFamily: 'MaterialIcons'), size: 25.0,),
+              )
             ],
           )
         ],
