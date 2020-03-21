@@ -69,6 +69,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_statusbar_manager:
+    dependency: "direct main"
+    description:
+      name: flutter_statusbar_manager
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -198,6 +205,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.5"
+  speech_recognition:
+    dependency: "direct main"
+    description:
+      name: speech_recognition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0+1"
   stack_trace:
     dependency: transitive
     description:
@@ -205,6 +219,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.3"
+  statusbar:
+    dependency: "direct main"
+    description:
+      name: statusbar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   stream_channel:
     dependency: transitive
     description:

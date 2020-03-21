@@ -1,4 +1,5 @@
 import 'package:bookshop/src/shop_list.dart';
+import 'package:bookshop/src/speech_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class _ShopMainPageState extends State<ShopMainPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      floatingActionButton: Speech(),
       backgroundColor: getBackgroundAppColor(),
       body: Container(
         child: Column(

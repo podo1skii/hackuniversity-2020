@@ -1,8 +1,9 @@
 import 'package:bookshop/src/services/avatar_service.dart';
 import 'package:bookshop/src/services/user_service.dart';
+import 'package:bookshop/src/speech.dart';
+import 'package:bookshop/src/speech_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:line_awesome_icons/line_awesome_icons.dart';
 
 class HeaderAppBar extends StatefulWidget{
   @override
@@ -11,6 +12,7 @@ class HeaderAppBar extends StatefulWidget{
 }
 
 class _HeaderAppBarState extends State<HeaderAppBar> {
+  SpeechModule speech;
   @override
   Widget build(BuildContext context) {
     final image = AvatarService.getAvatarByUser(1);
@@ -41,7 +43,6 @@ class _HeaderAppBarState extends State<HeaderAppBar> {
           ),
           Row(
             children: <Widget>[
-              Icon(IconData(58141, fontFamily: 'MaterialIcons'), size: 25.0,),
               Icon(IconData(0xe3c2, fontFamily: 'MaterialIcons'), size: 25.0,)
             ],
           )

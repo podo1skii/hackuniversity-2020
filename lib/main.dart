@@ -1,7 +1,11 @@
 import 'package:bookshop/src/shop_main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:statusbar/statusbar.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -37,9 +41,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      body: ShopMainPage(),
+      return  Scaffold(
+        body: ShopMainPage(),
     );
   }
 }

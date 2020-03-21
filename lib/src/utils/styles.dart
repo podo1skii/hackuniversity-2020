@@ -36,6 +36,31 @@ TextStyle getBookLinePriceTextStyle() => GoogleFonts.nunitoSans(
     fontSize: 16.0
 );
 
+TextStyle getBookInfoNameTextStyle() => GoogleFonts.nunitoSans(
+    fontSize: 28.0,
+  fontWeight: FontWeight.w800
+);
+
+TextStyle getBookInfoAuthorTextStyle() => GoogleFonts.nunitoSans(
+    fontSize: 20.0,
+);
+
+TextStyle getBookInfoRateTextStyle() => GoogleFonts.nunitoSans(
+  fontSize: 16.0,
+  fontWeight: FontWeight.w600
+);
+
+
+TextStyle getBottomTextStyle() => GoogleFonts.nunitoSans(
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+  color: Colors.white
+);
+
 Color getBackgroundAppColor() => Color.fromRGBO(229, 229, 229, 1);
+
+Color getGreyColor() => Color.fromRGBO(200, 200, 200, 1);
+
+Color getDarkGreyColor() => Color.fromRGBO(100, 100, 100, 1);
 
 

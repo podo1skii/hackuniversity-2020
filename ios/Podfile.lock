@@ -1,27 +1,45 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_statusbar_manager (0.0.1):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
   - path_provider_macos (0.0.1):
     - Flutter
+  - speech_recognition (0.3.0):
+    - Flutter
+  - statusbar (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_statusbar_manager (from `.symlinks/plugins/flutter_statusbar_manager/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
+  - speech_recognition (from `.symlinks/plugins/speech_recognition/ios`)
+  - statusbar (from `.symlinks/plugins/statusbar/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_statusbar_manager:
+    :path: ".symlinks/plugins/flutter_statusbar_manager/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   path_provider_macos:
     :path: ".symlinks/plugins/path_provider_macos/ios"
+  speech_recognition:
+    :path: ".symlinks/plugins/speech_recognition/ios"
+  statusbar:
+    :path: ".symlinks/plugins/statusbar/ios"
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_statusbar_manager: 18588ba7dce7a28a538363d2a9989f9ede4a6710
   path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
   path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0
+  speech_recognition: b5319aace06c3633c0547de44899f6e0bf8b2168
+  statusbar: 7d4f3b27d5e9317b17bc48cbf6046f892bf9ebeb
 
 PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
 
