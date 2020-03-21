@@ -6,6 +6,7 @@ import 'book_info_page.dart';
 import 'models/book.dart';
 
 class CommandModule {
+  final host = 'http://4f767023.ngrok.io';
   final BuildContext context;
 
   CommandModule(this.context);
@@ -15,9 +16,9 @@ class CommandModule {
   }
 
   Future<void> sendPhotoResponse(String path) async {
-    final bytes = File(path).readAsBytesSync();
-    print(bytes.length);
-    final response = await http.post('', body: {
+    final bytes = File(path).readAsBytesSync().toList();
+    print(bytes);
+    final response = await http.post('$host/image-handler', body: {
       'image': bytes,
     });
     print('Navigate');

@@ -17,8 +17,8 @@ class _ShopListState extends State<ShopList> {
         crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: 5.0, left: 20.0),
-              child: Text('Library',
+              margin: EdgeInsets.only(top: 10.0, left: 20.0),
+              child: Text('Popular',
                   style: getPanelHeaderTextStyle(), textAlign: TextAlign.left),
             ),
             ShopListBooksBuilder()

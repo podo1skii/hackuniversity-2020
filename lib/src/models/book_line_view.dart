@@ -17,8 +17,6 @@ class _BookLineViewState extends State<BookLineView> {
   _BookLineViewState(this.book);
   @override
   Widget build(BuildContext context) {
-    print(book.name);
-    print(book.mark);
     return GestureDetector(
       onTap: () {
         Navigator.push(context, 
@@ -76,7 +74,7 @@ class _BookLineViewState extends State<BookLineView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Icon(Icons.bookmark_border),
-                        Text('\$${book.price.toString()}', style: getBookLinePriceTextStyle(),),
+                        Text('${book.price.toString()}', style: getBookLinePriceTextStyle(),),
                       ],
                     )
                   ],
