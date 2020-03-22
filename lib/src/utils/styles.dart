@@ -37,7 +37,7 @@ TextStyle getBookLinePriceTextStyle() => GoogleFonts.varela(
 );
 
 TextStyle getBookInfoNameTextStyle() => GoogleFonts.varela(
-    fontSize: 24.0,
+    fontSize: 22.0,
   fontWeight: FontWeight.w800
 );
 

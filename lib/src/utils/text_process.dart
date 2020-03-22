@@ -14,3 +14,6 @@ String namePipe(String text){
 }
 
 String authorPipe(String author) => author == 'nan' ? 'Не указан': author;
+
+
+String longNamePipe(String text) => text.length > 43 ? text.substring(0, 32) + '...': text;

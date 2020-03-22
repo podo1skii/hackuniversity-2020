@@ -51,7 +51,7 @@ class _BookInfoPageState extends State<BookInfoPage> {
               ),
               height: 300.0,
             ),
-            Text(book.name, style: getBookInfoNameTextStyle(), textAlign: TextAlign.center,),
+            Text(longNamePipe(book.name), style: getBookInfoNameTextStyle(), textAlign: TextAlign.center,),
             Text(authorPipe(book.author), style: getBookInfoAuthorTextStyle(),),
             book.mark != null ? MarkRateBuilder(book.mark): Container(),
             Row(
@@ -93,7 +93,7 @@ class _BookInfoPageState extends State<BookInfoPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.all(15.0),
+                  margin: EdgeInsets.all(13.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.0), ),
                       border:  Border.all(color: getGreyColor(), width: 2.0)
@@ -110,7 +110,7 @@ class _BookInfoPageState extends State<BookInfoPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(15.0),
+                  margin: EdgeInsets.all(13.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.0), ),
                       border:  Border.all(color: getGreyColor(), width: 2.0)
