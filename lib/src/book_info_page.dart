@@ -51,7 +51,7 @@ class _BookInfoPageState extends State<BookInfoPage> {
               height: 300.0,
             ),
             Text(book.name, style: getBookInfoNameTextStyle()),
-            Text(book.author != 'nan'? book.author : 'Не указан', style: getBookInfoAuthorTextStyle(),),
+            Text(book.author, style: getBookInfoAuthorTextStyle(),),
             book.mark != null ? MarkRateBuilder(book.mark): Container(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

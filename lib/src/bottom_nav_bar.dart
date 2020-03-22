@@ -40,7 +40,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('${price.toInt().toString()} RUB', style: getBottomTextStyle(),),
+                Text('${price.toString()}', style: getBottomTextStyle(),),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.blue,

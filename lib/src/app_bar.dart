@@ -1,5 +1,4 @@
 //import 'package:bookshop/src/services/avatar_service.dart';
-import 'package:bookshop/src/scan_page.dart';
 import 'package:bookshop/src/services/avatar_service.dart';
 import 'package:bookshop/src/services/user_service.dart';
 import 'package:bookshop/src/speech.dart';
@@ -50,7 +49,7 @@ class _HeaderAppBarState extends State<HeaderAppBar> {
               GestureDetector(
                 onTap: () async {
                   final cameras = await availableCameras();
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => ScanPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CameraApp(cameras)));
                 },
                 child: Icon(IconData(0xe3c2, fontFamily: 'MaterialIcons'), size: 25.0,),
               )

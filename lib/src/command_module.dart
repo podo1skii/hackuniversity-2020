@@ -1,14 +1,12 @@
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tesseract_ocr/tesseract_ocr.dart';
 
 import 'book_info_page.dart';
 import 'models/book.dart';
 
 class CommandModule {
-  final host = 'http://36dcf65e.ngrok.io';
+  final host = 'http://4f767023.ngrok.io';
   final BuildContext context;
 
   CommandModule(this.context);

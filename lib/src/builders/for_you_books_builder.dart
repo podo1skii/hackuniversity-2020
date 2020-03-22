@@ -1,7 +1,6 @@
 import 'package:bookshop/src/models/book.dart';
 import 'package:bookshop/src/models/book_point_view.dart';
 import 'package:bookshop/src/services/books_service.dart';
-import 'package:bookshop/src/services/services.dart';
 import 'package:flutter/material.dart';
 
 class ForYouBooksBuilder extends StatefulWidget{
@@ -28,6 +27,6 @@ class _ForYouBooksBuilderState extends State<ForYouBooksBuilder> {
           } else{
             return Container();
           }
-    } , future: Services.booksService.getPopularBooks(true));
+    } , future: BooksService().getPopularBooks());
   }
 }

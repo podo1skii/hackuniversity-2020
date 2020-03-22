@@ -3,7 +3,7 @@ class Book {
   String author;
   double price;
   String linkToImage;
-  double mark;
+  double mark = 4.0;
   String genre;
 
   Book();
