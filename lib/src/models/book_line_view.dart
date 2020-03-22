@@ -7,15 +7,19 @@ import '../book_info_page.dart';
 
 class BookLineView extends StatefulWidget{
   final Book book;
-  BookLineView(this.book);
+  final bool isShort;
+  BookLineView(this.book, {this.isShort: false});
   @override
-  State<StatefulWidget> createState() => _BookLineViewState(book);
+  State<StatefulWidget> createState() => _BookLineViewState(book, isShort: isShort);
 
 }
 
 class _BookLineViewState extends State<BookLineView> {
   final Book book;
-  _BookLineViewState(this.book);
+  final bool isShort;
+
+  _BookLineViewState(this.book, {this.isShort: false});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -47,7 +51,7 @@ class _BookLineViewState extends State<BookLineView> {
               ),
               Container(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                width: 280.0,
+                width: isShort? 200: 280.0,
                 height: 82.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,7 +63,7 @@ class _BookLineViewState extends State<BookLineView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(namePipe(book.name), style: getBookLineNameTextStyle(),),
+                            Text(namePipe(book.name, width: 25), style: getBookLineNameTextStyle(),),
                             Text(authorPipe(book.author), style: getBookLineAuthorTextStyle()),
                           ],
                         ),
@@ -71,13 +75,13 @@ class _BookLineViewState extends State<BookLineView> {
                         )
                       ],
                     ),
-                    Column(
+                    !isShort ? Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Icon(Icons.bookmark_border),
                         Text('${book.price.toInt().toString()} RUB', style: getBookLinePriceTextStyle(),),
                       ],
-                    )
+                    ) : Container()
                   ],
                 )
               )

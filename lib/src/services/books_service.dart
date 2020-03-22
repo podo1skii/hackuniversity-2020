@@ -48,42 +48,28 @@ class BooksService {
     return books == null ? [] : books;
   }
 
-  List<Book> getLibraryBooks() {
-    return [
-      Book()
-        ..name = 'Java 8'
-        ..author = 'Steve Jobs'
-        ..price = 15.99
-        ..linkToImage = 'https://cdn1.ozone.ru/multimedia/1025459620.jpg'
-        ..mark = 4.6,
-      Book()
-        ..name = 'Time'
-        ..author = 'Roman Jobs'
-        ..price = 15.99,
-      Book()
-        ..name = 'Hello DAUN'
-        ..author = 'DAUN MAX'
-        ..price = 15.99,
-      Book()
-        ..name = 'Winter festival'
-        ..author = 'Steve Jobs'
-        ..price = 15.99,
-      Book()
-        ..name = 'Time'
-        ..author = 'Roman Jobs'
-        ..price = 15.99,
-      Book()
-        ..name = 'Hello DAUN'
-        ..author = 'DAUN MAX'
-        ..price = 15.99,
-    ];
-  }
-
   Future<List<Book>> getBooksByCommand(String text) async {
     print('GetBooksByCommand');
     final response = await http.post('$host/audio-handler',
         body: jsonEncode({
           'command': text,
+        }));
+    print('Response:' + response.statusCode.toString());
+    print('Res:' + response.body);
+    final List listBooks = json.decode(response.body)['data'];
+    print('Response1:' + listBooks.toString());
+    final books = listBooks
+        .map((item) => Book.fromJson(item as Map<String, dynamic>))
+        .toList();
+    return books == null ? [] : books;
+  }
+
+
+  Future<List<Book>> searchBooks(String text) async {
+    print('searchBooks');
+    final response = await http.post('$host/search',
+        body: jsonEncode({
+          'text': text,
         }));
     print('Response:' + response.statusCode.toString());
     print('Res:' + response.body);

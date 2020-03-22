@@ -1,3 +1,4 @@
+import 'package:bookshop/src/models/book.dart';
 import 'package:bookshop/src/payment_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -5,24 +6,27 @@ import 'package:flutter/material.dart';
 import 'application.dart';
 
 class BottomNavBar extends StatefulWidget {
-  final double price;
+  final Book book;
 
-  const BottomNavBar(this.price);
+  const BottomNavBar(this.book);
 
   @override
-  State<StatefulWidget> createState() => _BottomNavBarState(price);
+  State<StatefulWidget> createState() => _BottomNavBarState(book);
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  final double price;
+  final Book book;
 
-  _BottomNavBarState(this.price);
+  _BottomNavBarState(this.book);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(right: 15.0),
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(color: getGreyColor(), blurRadius: 5.0)
+        ],
           color: Colors.white,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0))
       ),
@@ -43,11 +47,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('${price.toInt().toString()} RUB', style: getBottomTextStyle(),),
+                Text('${book.price.toInt().toString()} RUB', style: getBottomTextStyle(),),
                 GestureDetector(
                   onTap: () async{
                     print('PAY');
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentPage(book)));
                   },
                   child: Container(
                     decoration: BoxDecoration(

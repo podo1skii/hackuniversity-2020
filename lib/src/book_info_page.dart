@@ -27,7 +27,7 @@ class _BookInfoPageState extends State<BookInfoPage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(book.price),
+      bottomNavigationBar: BottomNavBar(book),
       backgroundColor: getBackgroundAppColor(),
       body: Container(
 //        margin: EdgeInsets.only(top: 25.0),

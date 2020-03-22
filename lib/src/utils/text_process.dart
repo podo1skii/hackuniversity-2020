@@ -1,13 +1,13 @@
 const main_count = 25;
 
 
-String namePipe(String text){
-  if (text.length > main_count){
-    return text.substring(0,main_count-3)+'...';
-  } else if (text.length > main_count-1) {
-    return text.substring(0,main_count-4)+'..';
-  } else if (text.length > main_count-2){
-    return text.substring(0, main_count -5);
+String namePipe(String text, {int width = main_count}){
+  if (text.length > width){
+    return text.substring(0,width-3)+'...';
+  } else if (text.length > width-1) {
+    return text.substring(0,width-4)+'..';
+  } else if (text.length > width-2){
+    return text.substring(0, width -5);
   } else{
     return text;
   }
