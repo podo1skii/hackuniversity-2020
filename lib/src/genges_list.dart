@@ -2,6 +2,7 @@ import 'package:bookshop/src/shop_main_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
 import 'package:flutter/material.dart';
 
+import 'application.dart';
 import 'models/genres.dart';
 
 class GenresList extends StatefulWidget {
@@ -49,18 +50,25 @@ class _GenresListState extends State<GenresList> {
   }
 
   Widget getItem(String name){
-    return Container(
-
-      margin: EdgeInsets.only(left:9.0, right: 9.0, top: 10.0,),
-      width: 168,
-      height: 168,
-      decoration: BoxDecoration(
-        color: getColor(),
-        border: Border.all(color: Colors.transparent),
-        borderRadius: BorderRadius.all(Radius.circular(20.0))
+    return GestureDetector(
+      onTap: () {
+        Application.routing.fireGenre(name);
+        Application.routing.fire(2);
+      },
+      child: Container(
+        margin: EdgeInsets.only(left:9.0, right: 9.0, top: 10.0,),
+        width: 168,
+        height: 168,
+        decoration: BoxDecoration(
+            color: getColor(),
+            border: Border.all(color: Colors.transparent),
+            borderRadius: BorderRadius.all(Radius.circular(20.0))
+        ),
+        child: Center(child: Text(name, maxLines: 5, style: getBookInfoAuthorTextStyle(), textAlign: TextAlign.center,)),
       ),
-      child: Center(child: Text(name, maxLines: 5, style: getBookInfoAuthorTextStyle(), textAlign: TextAlign.center,)),
     );
+
+
   }
 
   int i = 0;

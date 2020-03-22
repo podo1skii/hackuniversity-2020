@@ -58,7 +58,7 @@ class _BookLineViewState extends State<BookLineView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(book.name, style: getBookLineNameTextStyle(),),
+                            Text(book.name.length > 25? book.name.substring(0, 22) + '...': book.name, style: getBookLineNameTextStyle(),),
                             Text(book.author, style: getBookLineAuthorTextStyle()),
                           ],
                         ),
@@ -74,7 +74,7 @@ class _BookLineViewState extends State<BookLineView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Icon(Icons.bookmark_border),
-                        Text('${book.price.toString()}', style: getBookLinePriceTextStyle(),),
+                        Text('${book.price.toInt().toString()} RUB', style: getBookLinePriceTextStyle(),),
                       ],
                     )
                   ],

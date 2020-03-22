@@ -48,7 +48,7 @@ class _BookPointViewState extends State<BookPointView> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 18.0),
-                child: Text(book.name, style: getBookPointNameTextStyle(), textAlign: TextAlign.left),
+                child: Text(book.name.length > 20? book.name.substring(0, 17) + '...': book.name, style: getBookPointNameTextStyle(), textAlign: TextAlign.left),
               ),
               Container(
                 margin: EdgeInsets.only(left: 18.0),

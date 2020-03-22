@@ -1,9 +1,9 @@
+import 'package:bookshop/src/application.dart';
 import 'package:bookshop/src/shop_main_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:statusbar/statusbar.dart';
 
 void main() async {
+  Application.booksService.init();
   runApp(MyApp());
 }
 

@@ -4,42 +4,74 @@ import 'package:bookshop/src/models/book.dart';
 import 'package:http/http.dart' as http;
 
 class BooksService {
-  final host = 'http://a7d67c7a.ngrok.io';
+  final host = 'http://207ae58c.ngrok.io';
 
-  List<Book> bufferBooks;
+  List<Book> mainBufferBooks;
+  List<Book> resultsBufferBooks;
+  String _currentGenre;
 
-  Future<List<Book>> getPopularBooks() async {
-    if (bufferBooks != null){
-      return bufferBooks;
-    }
-    final response =  await http.get('$host/get20');
-    final List listBooks = json.decode(response.body)['data'];
-    print(listBooks[0].toString());
-    final books = listBooks.map((item)=> Book.fromJson(item as Map<String, dynamic>)).toList();
-    bufferBooks = books;
-    return books;
+  Future init() async {
+    await getPopularBooks(true);
   }
 
-  List<Book> getLibraryBooks(){
+  Future<List<Book>> getPopularBooks(bool isFirst) async {
+    if (mainBufferBooks != null) {
+      return isFirst ? mainBufferBooks.sublist(0, 9) : mainBufferBooks.sublist(10);
+    }
+    final response = await http.get('$host/get20');
+    final List listBooks = json.decode(response.body)['data'];
+    final books = listBooks
+        .map((item) => Book.fromJson(item as Map<String, dynamic>))
+        .toList();
+    mainBufferBooks = books;
+    return isFirst ? mainBufferBooks.sublist(0, 9) : mainBufferBooks.sublist(10);
+  }
+
+  Future<List<Book>> getBooksByGenge(String genre) async {
+    if (genre == '' || resultsBufferBooks != null && _currentGenre == genre) {
+      return resultsBufferBooks;
+    }
+    final response = await http.post('$host/get-theme',
+        body: jsonEncode({
+          'theme': genre,
+        }));
+    print('Response:' + response.statusCode.toString());
+    final List listBooks = json.decode(response.body)['data'];
+    print('Response1:' + listBooks.toString());
+    final books = listBooks
+        .map((item) => Book.fromJson(item as Map<String, dynamic>))
+        .toList();
+    _currentGenre = genre;
+    resultsBufferBooks = books;
+    return books == null ? [] : books;
+  }
+
+  List<Book> getLibraryBooks() {
     return [
-      Book()..name = 'Java 8'
+      Book()
+        ..name = 'Java 8'
         ..author = 'Steve Jobs'
         ..price = 15.99
-        ..linkToImage='https://cdn1.ozone.ru/multimedia/1025459620.jpg'
+        ..linkToImage = 'https://cdn1.ozone.ru/multimedia/1025459620.jpg'
         ..mark = 4.6,
-      Book()..name = 'Time'
+      Book()
+        ..name = 'Time'
         ..author = 'Roman Jobs'
         ..price = 15.99,
-      Book()..name = 'Hello DAUN'
+      Book()
+        ..name = 'Hello DAUN'
         ..author = 'DAUN MAX'
         ..price = 15.99,
-      Book()..name = 'Winter festival'
+      Book()
+        ..name = 'Winter festival'
         ..author = 'Steve Jobs'
         ..price = 15.99,
-      Book()..name = 'Time'
+      Book()
+        ..name = 'Time'
         ..author = 'Roman Jobs'
         ..price = 15.99,
-      Book()..name = 'Hello DAUN'
+      Book()
+        ..name = 'Hello DAUN'
         ..author = 'DAUN MAX'
         ..price = 15.99,
     ];
