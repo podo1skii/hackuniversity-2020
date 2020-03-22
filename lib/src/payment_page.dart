@@ -49,7 +49,7 @@ class _PaymentPageState extends State<PaymentPage> {
             ),
             Container(
               margin: EdgeInsets.all(6.0),
-              padding: EdgeInsets.only(left:15.0, right: 15.0, top: 30.0, bottom: 30.0),
+              padding: EdgeInsets.only(left:15.0, right: 15.0, top: 15.0, bottom: 15.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 color: Color.fromRGBO(226,232,255, 1),
@@ -93,9 +93,27 @@ class _PaymentPageState extends State<PaymentPage> {
               ),
             ),
             Container(
+                margin: EdgeInsets.all(6.0),
+              padding: EdgeInsets.only(left:15.0, right: 15.0, top: 10.0, bottom: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Phone',textAlign: TextAlign.start, style: getHeaderPaymentTextStyle()),
+                    TextFormField(decoration: getDecorator()),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    color: Color.fromRGBO(226,232,255, 1),
+                    boxShadow: [
+                      BoxShadow(color: getDarkGreyColor(), blurRadius: 5.0)
+                    ]
+                )
+            ),
+            Container(
                 height: 54.0,
                 width: 200.0,
-                margin: EdgeInsets.only( left: 20.0, right:20.0,top: 40.0),
+                margin: EdgeInsets.only( left: 20.0, right:20.0,top: 0.0),
                 padding: EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -121,6 +139,7 @@ class _PaymentPageState extends State<PaymentPage> {
     return InputDecoration(
 //      filled: true,
 //      fillColor: Colors.pink[100],
+        contentPadding: EdgeInsets.only(top: 0.0, bottom: 0.0, left: 8.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10.0)))
     );
   }
