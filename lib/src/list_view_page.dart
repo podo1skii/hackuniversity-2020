@@ -5,56 +5,37 @@ import 'package:flutter/material.dart';
 import 'application.dart';
 import 'models/book.dart';
 
-class ListViewPage extends StatefulWidget{
-  final String genre;
+class ListViewPage extends StatefulWidget {
+  final List<Book> books;
 
-  ListViewPage(this.genre);
+  ListViewPage(this.books);
 
   @override
-  State<StatefulWidget> createState() => _ListViewPageState(genre);
-
+  State<StatefulWidget> createState() => _ListViewPageState(books);
 }
 
 class _ListViewPageState extends State<ListViewPage> {
-  final String genre;
+  final List<Book> books;
 
-  _ListViewPageState(this.genre);
+  _ListViewPageState(this.books);
 
   @override
   Widget build(BuildContext context) {
-    print('Genre:' + genre);
-    return FutureBuilder(
-      future: Application.booksService.getBooksByGenge(genre),
-      builder: (BuildContext context, AsyncSnapshot<List<Book>> snapshot){
-        if (snapshot.connectionState == ConnectionState.done){
-          print(snapshot.data);
-          final views = <Widget>[Container(
-            margin: EdgeInsets.only(top: 0.0, left: 20.0),
-            child: Text('Results',
-                style: getPanelHeaderTextStyle(), textAlign: TextAlign.left),
-          )];
-          views.addAll((snapshot.data != null ? snapshot.data : []).map((book)=> BookLineView(book)).toList());
-          return Container(
-            height: 533.0,
-            child: ListView(
-              children: views,
-            ),
-          );
-        } else{
-          return Container(
-            height: 533.0,
-            child: ListView(
-              children: [Container(
-                margin: EdgeInsets.only(top: 0.0, left: 20.0),
-                child: Text('Results',
-                    style: getPanelHeaderTextStyle(), textAlign: TextAlign.left),
-              )],
-            ),
-          );
-        }
-      },
+    final views = <Widget>[
+      Container(
+        margin: EdgeInsets.only(top: 0.0, left: 20.0),
+        child: Text('Results',
+            style: getPanelHeaderTextStyle(), textAlign: TextAlign.left),
+      )
+    ];
+    views.addAll((books != null ? books : [])
+        .map((book) => BookLineView(book))
+        .toList());
+    return Container(
+      height: 533.0,
+      child: ListView(
+        children: views,
+      ),
     );
-
-
   }
 }

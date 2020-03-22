@@ -1,3 +1,5 @@
+import 'package:bookshop/src/models/Books.dart';
+import 'package:bookshop/src/search_panel.dart';
 import 'package:bookshop/src/shop_list.dart';
 import 'package:bookshop/src/speech_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
@@ -9,6 +11,7 @@ import 'application.dart';
 import 'for_you_panel.dart';
 import 'genges_list.dart';
 import 'list_view_page.dart';
+import 'models/book.dart';
 
 class ShopMainPage extends StatefulWidget {
   ShopMainPage({Key key, this.title}) : super(key: key);
@@ -24,13 +27,22 @@ class _ShopMainPageState extends State<ShopMainPage> {
   int currentIndex;
 
   _ShopMainPageState(){
-    Application.routing.onChangeGenre.listen((String genre){
-      print('Genre stream:' + genre);
+    Application.routing.onChangeBooks.listen((Books books) async {
+      print('Books stream');
       setState(() {
         currentIndex = 3;
-        container = ListViewPage(genre);
+        container = ListViewPage(books.ls);
       });
     });
+    Application.routing.onChangeGenre.listen((String genre) async {
+      print('Genre stream:' + genre);
+      final books = await Application.booksService.getBooksByGenge(genre);
+      setState(() {
+        currentIndex = 3;
+        container = ListViewPage(books);
+      });
+    });
+
   }
 
   @override
@@ -77,9 +89,9 @@ class _ShopMainPageState extends State<ShopMainPage> {
                 icon: Icon(Icons.menu, color: Colors.black,),
                 activeIcon: Icon(Icons.menu, color: Colors.green,),
                 title: Text("Genres")),
-            BubbleBottomBarItem(backgroundColor: Colors.deepPurple,
+            BubbleBottomBarItem(backgroundColor: Colors.orange,
                 icon: Icon(Icons.search, color: Colors.black,),
-                activeIcon: Icon(Icons.search, color: Colors.deepPurple,),
+                activeIcon: Icon(Icons.search, color: Colors.orange,),
                 title: Text("Search")),
             BubbleBottomBarItem(backgroundColor: Colors.indigo,
                 icon: Icon(Icons.folder_open, color: Colors.black,),
@@ -122,10 +134,15 @@ class _ShopMainPageState extends State<ShopMainPage> {
         });
         break;
       case 2:
+        setState(() {
+          currentIndex = 2;
+          container = SearchPanel();
+        });
+        break;
       case 3:
         setState(() {
           currentIndex = index;
-          container = ListViewPage('');
+          container = ListViewPage([]);
         });
     }
   }

@@ -4,7 +4,7 @@ import 'package:speech_recognition/speech_recognition.dart';
 import 'application.dart';
 import 'book_info_page.dart';
 import 'builders/command_view_builder.dart';
-import 'command_module.dart';
+import 'package:bookshop/src/services/command_module.dart';
 import 'models/book.dart';
 
 class Language {
@@ -27,6 +27,7 @@ class _MyAppState extends State<Speech> {
 
   String transcription = '';
 
+  CommandModule command;
   Language selectedLang = const Language('Pусский', 'ru_RU');
 
   @override
@@ -61,8 +62,10 @@ class _MyAppState extends State<Speech> {
           stop();
           _isListening = false;
           Future.delayed(Duration(milliseconds: 500), (){
-            print('Future.delayed');
-            (Application.command..context = context).sendCommandResponse(transcription);
+            if (command == null){
+              command = CommandModule(context);
+            }
+            command.sendCommandResponse(transcription);
           });
         },
         child: Container(

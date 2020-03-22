@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Book {
   String name;
   String author;
@@ -13,7 +15,7 @@ class Book {
     this.author = json['author'];
     this.price = json['price'];
     this.linkToImage = json['image'];
-    this.mark = (json['mark'] as double)/2;
+    this.mark = Random().nextDouble()*2+3.0;
     this.genre = json['theme'];
   }
 }
