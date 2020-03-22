@@ -33,7 +33,7 @@ class _BookPointViewState extends State<BookPointView> {
                   color: getGreyColor(),
                     image: book.linkToImage != null ? DecorationImage(
                         fit: BoxFit.fill,
-                        image: NetworkImage(book.linkToImage)
+                        image: CachedNetworkImageProvider(book.linkToImage)
                     ): null,
                     boxShadow: [
                       BoxShadow(
@@ -48,7 +48,7 @@ class _BookPointViewState extends State<BookPointView> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 18.0),
-                child: Text(book.name, style: getBookPointNameTextStyle(), textAlign: TextAlign.left),
+                child: Text(book.name.length > 15? book.name.substring(0, 12)+'...': book.name, style: getBookPointNameTextStyle(), textAlign: TextAlign.left),
               ),
               Container(
                 margin: EdgeInsets.only(left: 18.0),
