@@ -26,7 +26,7 @@ class _PaymentPageState extends State<PaymentPage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(59,86,233, 1),
       body: Container(
-        margin: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
+        margin: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
         child: ListView(
           children: <Widget>[
             Container(
@@ -113,11 +113,11 @@ class _PaymentPageState extends State<PaymentPage> {
             Container(
                 height: 54.0,
                 width: 200.0,
-                margin: EdgeInsets.only( left: 20.0, right:20.0,top: 0.0),
+                margin: EdgeInsets.only( left: 20.0, right:20.0,top: 10.0),
                 padding: EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    color: Colors.lightBlue[100]
+                    color: Colors.blue[50]
                 ),
               child: Text('Enter a card', style: getPanelHeaderTextStyle(), textAlign: TextAlign.center,),
             ),
