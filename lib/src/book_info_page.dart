@@ -2,6 +2,7 @@ import 'package:bookshop/src/bottom_nav_bar.dart';
 import 'package:bookshop/src/models/book.dart';
 import 'package:bookshop/src/shop_list.dart';
 import 'package:bookshop/src/utils/styles.dart';
+import 'package:bookshop/src/utils/text_process.dart';
 import 'package:flutter/material.dart';
 
 import 'app_bar.dart';
@@ -50,8 +51,8 @@ class _BookInfoPageState extends State<BookInfoPage> {
               ),
               height: 300.0,
             ),
-            Text(book.name, style: getBookInfoNameTextStyle()),
-            Text(book.author, style: getBookInfoAuthorTextStyle(),),
+            Text(book.name, style: getBookInfoNameTextStyle(), textAlign: TextAlign.center,),
+            Text(authorPipe(book.author), style: getBookInfoAuthorTextStyle(),),
             book.mark != null ? MarkRateBuilder(book.mark): Container(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -131,5 +132,10 @@ class _BookInfoPageState extends State<BookInfoPage> {
         ),
       ),
     );
+  }
+
+
+  void startPay(){
+
   }
 }

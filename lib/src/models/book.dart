@@ -13,7 +13,7 @@ class Book {
     this.author = json['author'];
     this.price = json['price'];
     this.linkToImage = json['image'];
-    this.mark = json['mark'];
+    this.mark = (json['mark'] as double)/2;
     this.genre = json['theme'];
   }
 }

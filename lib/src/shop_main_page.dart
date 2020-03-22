@@ -9,7 +9,6 @@ import 'application.dart';
 import 'for_you_panel.dart';
 import 'genges_list.dart';
 import 'list_view_page.dart';
-import 'models/genres.dart';
 
 class ShopMainPage extends StatefulWidget {
   ShopMainPage({Key key, this.title}) : super(key: key);
@@ -79,9 +78,9 @@ class _ShopMainPageState extends State<ShopMainPage> {
                 activeIcon: Icon(Icons.menu, color: Colors.green,),
                 title: Text("Genres")),
             BubbleBottomBarItem(backgroundColor: Colors.deepPurple,
-                icon: Icon(Icons.access_time, color: Colors.black,),
-                activeIcon: Icon(Icons.access_time, color: Colors.deepPurple,),
-                title: Text("Logs")),
+                icon: Icon(Icons.search, color: Colors.black,),
+                activeIcon: Icon(Icons.search, color: Colors.deepPurple,),
+                title: Text("Search")),
             BubbleBottomBarItem(backgroundColor: Colors.indigo,
                 icon: Icon(Icons.folder_open, color: Colors.black,),
                 activeIcon: Icon(Icons.folder_open, color: Colors.indigo,),

@@ -1,5 +1,6 @@
 import 'package:bookshop/src/models/book.dart';
 import 'package:bookshop/src/utils/styles.dart';
+import 'package:bookshop/src/utils/text_process.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,7 @@ class _BookPointViewState extends State<BookPointView> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 18.0),
-                child: Text(book.author, style: getBookPointAuthorTextStyle(), textAlign: TextAlign.left),
+                child: Text(authorPipe(book.author), style: getBookPointAuthorTextStyle(), textAlign: TextAlign.left),
               ),
             ],
           )

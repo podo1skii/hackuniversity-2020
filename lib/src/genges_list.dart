@@ -42,6 +42,7 @@ class _GenresListState extends State<GenresList> {
               Row(
                 children: <Widget>[
                   getItem(Genres.values[6].name),
+                  getItem(Genres.values[7].name),
                 ],
               ),
             ],

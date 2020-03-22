@@ -1,5 +1,6 @@
 import 'package:bookshop/src/models/book.dart';
 import 'package:bookshop/src/utils/styles.dart';
+import 'package:bookshop/src/utils/text_process.dart';
 import 'package:flutter/material.dart';
 
 import '../book_info_page.dart';
@@ -58,8 +59,8 @@ class _BookLineViewState extends State<BookLineView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(book.name.length > 25? book.name.substring(0, 22) + '...': book.name, style: getBookLineNameTextStyle(),),
-                            Text(book.author, style: getBookLineAuthorTextStyle()),
+                            Text(namePipe(book.name), style: getBookLineNameTextStyle(),),
+                            Text(authorPipe(book.author), style: getBookLineAuthorTextStyle()),
                           ],
                         ),
                         Row(

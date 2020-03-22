@@ -11,6 +11,7 @@ class Genres {
 
   static const rus_lit = const Genres._('Русская классическая и современная литература');
   static const learn_lit = const Genres._('Учебная и обучающая литература');
+  static const sport = const Genres._('Здоровье. Фитнес. Спорт');
 
   static const values = const [
     home,
@@ -20,6 +21,7 @@ class Genres {
   polytycs,
   rus_lit,
   learn_lit,
+    sport
   ];
 
 }

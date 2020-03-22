@@ -18,6 +18,10 @@ PODS:
     - FMDB (~> 2.7.2)
   - statusbar (0.0.1):
     - Flutter
+  - Stripe (19.0.0)
+  - stripe_payment (1.0.0):
+    - Flutter
+    - Stripe (>= 18.0.0)
 
 DEPENDENCIES:
   - camera (from `.symlinks/plugins/camera/ios`)
@@ -28,10 +32,12 @@ DEPENDENCIES:
   - speech_recognition (from `.symlinks/plugins/speech_recognition/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - statusbar (from `.symlinks/plugins/statusbar/ios`)
+  - stripe_payment (from `.symlinks/plugins/stripe_payment/ios`)
 
 SPEC REPOS:
   trunk:
     - FMDB
+    - Stripe
 
 EXTERNAL SOURCES:
   camera:
@@ -50,6 +56,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite/ios"
   statusbar:
     :path: ".symlinks/plugins/statusbar/ios"
+  stripe_payment:
+    :path: ".symlinks/plugins/stripe_payment/ios"
 
 SPEC CHECKSUMS:
   camera: 38cc83ae9a5667bb5a71c7d9edaf60a91920fd4e
@@ -61,6 +69,8 @@ SPEC CHECKSUMS:
   speech_recognition: b5319aace06c3633c0547de44899f6e0bf8b2168
   sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
   statusbar: 7d4f3b27d5e9317b17bc48cbf6046f892bf9ebeb
+  Stripe: 5afd38a520f7a1a16b609127165d517fa9f7de32
+  stripe_payment: 1baf1bbf556f7a35c210dc9e2eccf2075947b6be
 
 PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
 

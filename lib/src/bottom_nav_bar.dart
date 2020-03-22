@@ -1,6 +1,8 @@
 import 'package:bookshop/src/utils/styles.dart';
 import 'package:flutter/material.dart';
 
+import 'application.dart';
+
 class BottomNavBar extends StatefulWidget {
   final double price;
 
@@ -40,15 +42,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('${price.toString()}', style: getBottomTextStyle(),),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    border: Border.all(color: Colors.transparent)
+                Text('${price.toInt().toString()} RUB', style: getBottomTextStyle(),),
+                GestureDetector(
+                  onTap: () async{
+                    print('PAY');
+                    await Application.payment.makePayment(price);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        border: Border.all(color: Colors.transparent)
+                    ),
+                    padding: EdgeInsets.only(top: 7.0, bottom: 7.0, left: 15.0, right: 15.0),
+                    child: Text('Buy now', style: getBottomTextStyle()),
                   ),
-                  padding: EdgeInsets.only(top: 7.0, bottom: 7.0, left: 15.0, right: 15.0),
-                  child: Text('Buy now', style: getBottomTextStyle()),
                 )
               ],
             ),
