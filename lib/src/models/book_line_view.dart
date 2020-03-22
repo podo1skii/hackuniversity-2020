@@ -35,7 +35,7 @@ class _BookLineViewState extends State<BookLineView> {
                 decoration: BoxDecoration(
                     image: book.linkToImage != null ? DecorationImage(
                         fit: BoxFit.fill,
-                        image: NetworkImage(book.linkToImage)
+                        image: NetworkImage(book.linkToImage),
                     ): null,
                     boxShadow: [
                       BoxShadow(
@@ -43,7 +43,7 @@ class _BookLineViewState extends State<BookLineView> {
                           blurRadius: 3.0
                       )
                     ],
-                    color: Colors.grey,
+                    color: Colors.grey[200],
                     borderRadius: BorderRadius.all(Radius.circular(10.0))
                 ),
                 height: 72.0,

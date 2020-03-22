@@ -31,7 +31,7 @@ class _BookPointViewState extends State<BookPointView> {
               Container(
                 margin: EdgeInsets.only(top: 20.0, bottom: 10.0, left: 15.0, right: 15.0),
                 decoration: BoxDecoration(
-                  color: getGreyColor(),
+                  color: Colors.grey[200],
                     image: book.linkToImage != null ? DecorationImage(
                         fit: BoxFit.fill,
                         image: NetworkImage(book.linkToImage)
