@@ -3,6 +3,7 @@ import 'package:camera/camera.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
+import 'application.dart';
 import 'command_module.dart';
 
 class CameraApp extends StatefulWidget {
@@ -55,7 +56,7 @@ class _CameraAppState extends State<CameraApp> {
 
             // Attempt to take a picture and log where it's been saved.
             await controller.takePicture(path);
-            CommandModule(context).sendPhotoResponse(path);
+            (Application.command..context = context).sendPhotoResponse(path);
           },
           child: Icon(Icons.camera, size: 20.0, color: Colors.black,),
           backgroundColor: Colors.white,),

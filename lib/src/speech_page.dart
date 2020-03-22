@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:speech_recognition/speech_recognition.dart';
 
+import 'application.dart';
 import 'book_info_page.dart';
 import 'builders/command_view_builder.dart';
+import 'command_module.dart';
 import 'models/book.dart';
 
 class Language {
@@ -58,8 +60,10 @@ class _MyAppState extends State<Speech> {
         onLongPressUp: () async {
           stop();
           _isListening = false;
-          print(transcription);
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> CommandViewBuilder(transcription)));
+          Future.delayed(Duration(milliseconds: 500), (){
+            print('Future.delayed');
+            (Application.command..context = context).sendCommandResponse(transcription);
+          });
         },
         child: Container(
           height: 60.0,

@@ -12,6 +12,12 @@ TextStyle getPanelHeaderTextStyle() => GoogleFonts.varela(
   color: Color.fromRGBO(42,43,43, 1)
 );
 
+TextStyle getWhitePanelHeaderTextStyle() => GoogleFonts.varela(
+    fontWeight: FontWeight.w900,
+    fontSize: 36.0,
+    color: Colors.white
+);
+
 TextStyle getBookPointNameTextStyle() => GoogleFonts.varela(
   fontWeight: FontWeight.w800,
   fontSize: 22.0
@@ -58,6 +64,12 @@ TextStyle getBottomTextStyle() => GoogleFonts.varela(
 );
 
 TextStyle getGenresTextStyle() => GoogleFonts.varela(
+    fontSize: 16.0,
+    fontWeight: FontWeight.w200,
+    color: getDarkGreyColor()
+);
+
+TextStyle getHeaderPaymentTextStyle() => GoogleFonts.varela(
     fontSize: 16.0,
     fontWeight: FontWeight.w200,
     color: getDarkGreyColor()

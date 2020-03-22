@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:bookshop/src/application.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -7,12 +8,15 @@ import 'models/book.dart';
 
 class CommandModule {
   final host = 'http://4f767023.ngrok.io';
-  final BuildContext context;
+  BuildContext context;
 
-  CommandModule(this.context);
-
-  Future sendCommandResponse(String text) async {
-    return Future.delayed(Duration(seconds: 5));
+  Future<List<Book>> sendCommandResponse(String text) async {
+    print('sendCommandResponse');
+    final books = await Application.booksService.getBooksByCommand(text);
+    if (books.length == 1) {
+      Navigator.push(context, MaterialPageRoute(builder: (_)=>BookInfoPage(books.first)));
+    }
+    return books;
   }
 
   Future<void> sendPhotoResponse(String path) async {

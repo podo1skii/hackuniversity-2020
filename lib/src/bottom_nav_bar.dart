@@ -1,3 +1,4 @@
+import 'package:bookshop/src/payment_page.dart';
 import 'package:bookshop/src/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 GestureDetector(
                   onTap: () async{
                     print('PAY');
-                    await Application.payment.makePayment(price);
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>PaymentPage()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
